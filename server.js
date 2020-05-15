@@ -21,16 +21,16 @@ let htmlLinks = []
 app.use(express.static(path.join(__dirname, "public")));
 
 // Express-Session
-app.use(session({
-	secret: 'CatMat',
-	resave: false,
-	saveUninitialized: true,
-	cookie: { secure: true,
-				maxAge: 60000 }
-}));
+// app.use(session({
+// 	secret: 'CatMat',
+// 	resave: false,
+// 	saveUninitialized: true,
+// 	cookie: { secure: true,
+// 				maxAge: 60000 }
+// }));
 
-// Express-Messages
-app.use(require('connect-flash')());
+// // Express-Messages
+// app.use(require('connect-flash')());
 
 // Set EJS as View Engine
 app.set('view engine', 'ejs');
