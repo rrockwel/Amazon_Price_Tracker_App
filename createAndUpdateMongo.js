@@ -45,7 +45,7 @@ async function pullMongoArray(){
 	console.log('Pulling MongoDB Array')
 	const client = new MongoClient(connectionString, { useUnifiedTopology: true });
 	await client.connect()
-	let object = await client.db('Users').collection('stuff').find().toArray();
+	let object = await client.db('heroku_mms60bs4').collection('stuff').find().toArray();
 	await client.close();
 	return object;
 };

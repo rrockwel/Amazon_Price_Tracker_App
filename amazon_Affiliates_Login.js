@@ -31,7 +31,7 @@ async function loginAmazon(url){
 	
 		const $ = await cheerio.load(cheerioPageContent);
 		console.log('passed page to cheerio');
-		await page.waitForSelector('.nav-sprite');
+		await page.waitForSelector('#nav-link-accountList');
 		console.log('Found Nav-sprite selector node')
 		await page.click('#nav-link-accountList');
 		console.log('clicked nav-link')

@@ -1,9 +1,12 @@
+-- Set up MongoDB connection through Mlab so it actually connects
+	-- right now it is starting to scrape on nothing and therefore throwing a timeout error when waiting 
+		for a selector
+
+
+
 -- Make amazonlogin function try to get htmlLink multiple times if it receives a timeout (only receiving timeout due to captchas)
 -- Include catch block in all async function
 -- Figure out how certain modules (e.g. puppeteer) work in heroku
--- Find all sensitive information and convert to config variables BEFORE pushing to heroku 
--- Clean up code before uploading!!!!!!!!!!!!!!!!!!!!!
--- Push to Heroku!
 
 
 
