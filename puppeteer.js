@@ -28,7 +28,7 @@ async function scrape(array){
 			const browser = await puppeteer.launch({
 				// Setting headless to false allows you to watch what is happening
 				// in the browser
-				headless:false,
+				headless:true,
 
 				// set up proxy server ip address and port
 				args: ['--proxy-server=socks5='+ ipAndPort, '--no-sandbox']
