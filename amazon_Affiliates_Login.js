@@ -6,7 +6,7 @@ const { ipAndPort } = require('./getIpAndPort.js')
 async function loginAmazon(url){
 	let link;
 	const browser = await puppeteer.launch({
-		headless: true,
+		headless: false,
 		args: ['--proxy-server=socks5='+ipAndPort, '--no-sandbox']
 
 	}).catch((err)=>{

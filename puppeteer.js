@@ -56,7 +56,7 @@ async function scrape(array){
 				let currentPrice = await $('#priceblock_ourprice').text()
 
 				// remove '$' from the current price before comparison
-				let trimCurrentPrice = await parseInt(currentPrice.replace('$',''))
+				let trimCurrentPrice = await currentPrice.replace('$','')
 								//if the current price is less than desired price, send an email to user
 				if (trimCurrentPrice != '' && trimCurrentPrice <= array[i].desiredPrice){
 					console.log("Price Met")
