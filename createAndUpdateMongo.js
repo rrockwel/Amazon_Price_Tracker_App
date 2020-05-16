@@ -8,7 +8,7 @@ const connectionString = process.env.Connection_STRING;
 async function newConnectToMongo(url,price,email){
 	let mongoClient = await new MongoClient(connectionString, { useUnifiedTopology: true});
 	let client = await mongoClient.connect()
-	const db = await client.db('Users');
+	const db = await client.db(process.env.mLab_DB_NAME);
 	await db.collection('stuff').countDocuments({ "productUrl" : url, "email" : email},(err,data)=>{
 		if(data==0){
 			console.log('Creating MongoDB Entry');
@@ -45,7 +45,7 @@ async function pullMongoArray(){
 	console.log('Pulling MongoDB Array')
 	const client = new MongoClient(connectionString, { useUnifiedTopology: true });
 	await client.connect()
-	let object = await client.db('heroku_mms60bs4').collection('stuff').find().toArray();
+	let object = await client.db(process.env.mLab_DB_NAME).collection('stuff').find().toArray();
 	await client.close();
 	return object;
 };
@@ -55,7 +55,7 @@ async function deleteItem(productLink){
 	const deleteClient = new MongoClient(connectionString, { useUnifiedTopology: true })	
 	await deleteClient.connect();
 	console.log('Connected To MongoDB to Delete')
-	let db = deleteClient.db('Users');
+	let db = deleteClient.db(process.env.mLab_DB_NAME);
 	console.log('Found Delete Database');
 	await console.log(productLink)
 	await db.collection('stuff').deleteOne({ "productUrl": productLink }) 

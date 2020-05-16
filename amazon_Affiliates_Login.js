@@ -53,6 +53,7 @@ async function loginAmazon(url){
 			console.log(err);
 		})
 		console.log('Waited For Page Load')
+		await page.screenshot({path: 'screenshot.png'})
 		await page.waitForSelector('li[id="amzn-ss-text-link"]');
 		console.log('waited for text dropdown item')
 		await page.click('a[title="Text+Image"]');
