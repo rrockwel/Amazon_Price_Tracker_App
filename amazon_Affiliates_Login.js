@@ -7,7 +7,7 @@ async function loginAmazon(url){
 	let link;
 	const browser = await puppeteer.launch({
 		headless: true,
-		args: ['--proxy-server=socks5='+ipAndPort]
+		args: ['--proxy-server=socks5='+ipAndPort, '--no-sandbox']
 
 	}).catch((err)=>{
 		console.log(err);

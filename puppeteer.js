@@ -31,7 +31,7 @@ async function scrape(array){
 				headless:true,
 
 				// set up proxy server ip address and port
-				args: ['--proxy-server=socks5='+ ipAndPort]
+				args: ['--proxy-server=socks5='+ ipAndPort, '--no-sandbox']
 			}).catch((err)=>{console.log(err)});
 
 			if(browser){
