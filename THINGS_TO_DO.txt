@@ -1,12 +1,3 @@
--- Make Amazon Login Functions sneakier by using random ports and different user agents
--- Make initial scrape for htmlLinks to put into currently tracking synchronous (and possibly delayed) so it doesn't cause captchas.
-
-
-
-
-
-
-
 -- Make amazonlogin function try to get htmlLink multiple times if it receives a timeout (only receiving timeout due to captchas)
 -- Include catch block in all async function
 -- Figure out how certain modules (e.g. puppeteer) work in heroku
@@ -18,7 +9,7 @@
 
 -- Make page look good
 -- Make currently tracking area look good
-
+--
 
 
 
