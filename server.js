@@ -105,6 +105,7 @@ app.listen(PORT, ()=>{
 // Start scraping when server starts
 createMongo.pullMongoArray()
 .then((result)=>{
+	console.log(result)
 	puppeteer.start(result);
 	startupAffiliateLinkScrape(result);
 

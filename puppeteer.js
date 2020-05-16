@@ -22,7 +22,6 @@ function stop(){
 }
 
 async function scrape(array){		
-		
 		let port = '9052';
 			// Launch Chromium
 			const browser = await puppeteer.launch({
