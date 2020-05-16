@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -36,5 +37,8 @@
     "request-promise": "^4.2.5",
     "set-interval-async": "1.0.32",
     "tor-request": "^3.1.0"
+  },
+  "engines":{
+    "node": "10.16.0"
   }
 }

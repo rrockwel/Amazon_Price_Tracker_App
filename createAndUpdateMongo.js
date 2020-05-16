@@ -6,7 +6,7 @@ const connectionString = process.env.Connection_STRING;
 
 
 async function newConnectToMongo(url,price,email){
-	let mongoClient = await new MongoClient(connectionString, { useUnifiedTopology: false});
+	let mongoClient = await new MongoClient(connectionString, { useUnifiedTopology: true});
 	let client = await mongoClient.connect()
 	const db = await client.db('Users');
 	await db.collection('stuff').countDocuments({ "productUrl" : url, "email" : email},(err,data)=>{
@@ -43,7 +43,7 @@ async function newConnectToMongo(url,price,email){
 // Gets entire array from MongoDB to be passed to puppeteer for page scraping
 async function pullMongoArray(){
 	console.log('Pulling MongoDB Array')
-	const client = new MongoClient(connectionString, { useUnifiedTopology: false });
+	const client = new MongoClient(connectionString, { useUnifiedTopology: true });
 	await client.connect()
 	let object = await client.db('Users').collection('stuff').find().toArray();
 	await client.close();
@@ -52,7 +52,7 @@ async function pullMongoArray(){
 
 // Delete Item From MongoDB
 async function deleteItem(productLink){
-	const deleteClient = new MongoClient(connectionString, { useUnifiedTopology: false })	
+	const deleteClient = new MongoClient(connectionString, { useUnifiedTopology: true })	
 	await deleteClient.connect();
 	console.log('Connected To MongoDB to Delete')
 	let db = deleteClient.db('Users');

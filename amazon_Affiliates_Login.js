@@ -35,13 +35,13 @@ async function loginAmazon(url){
 		console.log('clicked nav-link')
 		await page.waitForSelector('#ap_email');
 		console.log('wait for ap_email')
-		await page.type('#ap_email', process.env.Amazon_EMAIL);
+		await page.type('#ap_email', process.env.Amazon_EMAIL,{delay:500});
 		console.log('typed email into ap_email')
 		await page.click('#continue');
 		console.log('clicked continue')
 		await page.waitForSelector('#ap_password');
 		console.log('waited for ap_password')
-		await page.type('#ap_password', process.env.Amazon_PASSWORD);
+		await page.type('#ap_password', process.env.Amazon_PASSWORD,{delay:500});
 		console.log('typed in password')
 		await Promise.all([
 			page.click('#signInSubmit'),

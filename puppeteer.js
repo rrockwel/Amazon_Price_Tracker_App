@@ -56,13 +56,14 @@ async function scrape(array){
 				let currentPrice = await $('#priceblock_ourprice').text()
 
 				// remove '$' from the current price before comparison
-				let trimCurrentPrice = currentPrice.replace('$','')
-				
-				//if the current price is less than desired price, send an email to user
+				let trimCurrentPrice = await parseInt(currentPrice.replace('$',''))
+								//if the current price is less than desired price, send an email to user
 				if (trimCurrentPrice != '' && trimCurrentPrice <= array[i].desiredPrice){
+					console.log("Price Met")
 					await signIn.loginAmazon(array[i].productUrl)
 					.then((link)=>{
 						mail(array[i].email, product, currentPrice, link);
+						console.log('Mail Sent')
 					})
 					.catch((err)=>{
 						console.log(err);
@@ -71,12 +72,12 @@ async function scrape(array){
 					readMongo.deleteItem(array[i].productUrl);
 
 					// ... and remove that item from the array to stop watching it
-					await array.splice(i,1).catch((err)=>{console.log(err)});
+					await array.splice(i,1)
 					// ... and remove that item from MongoDB
 				}
 				
 				// log out the product and it's price
-				await console.log(`The price of ${product} is currently ${currentPrice}`)
+				await console.log(`The price of ${product} is currently ${currentPrice} and trim price is ${trimCurrentPrice}`)
 
 				// console.log('scraping page')
 				await page.close().catch((err)=>{console.log(err)});
