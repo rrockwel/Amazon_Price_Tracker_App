@@ -12,7 +12,7 @@ const { ipAndPort } = require('./getIpAndPort.js')
 let timer;
 
 function start(result){
-	timer = setIntervalAsync(scrape,30000, result);
+	timer = setIntervalAsync(scrape,60000, result);
 	console.log('Starting Scrape');
 }
 
